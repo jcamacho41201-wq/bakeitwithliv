@@ -1,0 +1,1140 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FFF3DE;
+    --cookie-dough: #D9A066;
+    --cocoa: #5B3524;
+    --caramel: #B86B38;
+    --raspberry: #B94A57;
+    --soft-pink: #F8D8D2;
+    --white: #ffffff;
+  }
+
+  #biwl-site {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--cocoa);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  .nav {
+    background: var(--white);
+    border-bottom: 1.5px solid var(--soft-pink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 48px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--cocoa);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .nav-logo span { color: var(--raspberry); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--cocoa);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--raspberry); }
+  .nav-cta {
+    background: var(--raspberry);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--cocoa); }
+
+  /* HERO */
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(248,216,210,0.32) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(248,216,210,0.24) 1px, transparent 1px),
+      var(--cream);
+    background-size: 44px 44px;
+    padding: 72px 48px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.82fr);
+    align-items: center;
+    gap: 56px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-copy {
+    text-align: left;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--caramel);
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--soft-pink);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    line-height: 1.02;
+    color: var(--cocoa);
+    font-weight: 700;
+    max-width: 640px;
+    margin: 0 0 22px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--raspberry);
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--cocoa);
+    opacity: 0.78;
+    max-width: 540px;
+    margin: 0 0 32px;
+    line-height: 1.6;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--raspberry);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--cocoa); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--cocoa);
+    border: 1.5px solid var(--cookie-dough);
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--cocoa); background: var(--soft-pink); }
+
+  .hero-proof {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .proof-pill {
+    background: rgba(255,255,255,0.72);
+    border: 1px solid var(--soft-pink);
+    border-radius: 999px;
+    color: var(--cocoa);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 13px;
+  }
+  .hero-visual {
+    position: relative;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--cocoa);
+    box-shadow: 0 18px 30px rgba(91,53,36,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--cocoa);
+    transform: rotate(6deg);
+    z-index: 3;
+  }
+  .hero-badge::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    border: 2px dotted var(--soft-pink);
+  }
+  .hero-box {
+    width: min(100%, 390px);
+    background: var(--white);
+    border: 2px solid var(--soft-pink);
+    border-radius: 8px;
+    box-shadow: 0 24px 60px rgba(91,53,36,0.14);
+    padding: 22px 22px 26px;
+    transform: rotate(-2deg);
+  }
+  .box-label {
+    border: 2px solid var(--cocoa);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .box-label::before,
+  .box-label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 42px;
+    height: 2px;
+    background: var(--soft-pink);
+  }
+  .box-label::before { left: 16px; }
+  .box-label::after { right: 16px; }
+  .box-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cocoa);
+    margin-bottom: 4px;
+  }
+  .box-tagline {
+    color: var(--caramel);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .cookie-tray {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .hero-cookie {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--cookie-dough);
+    border: 2px solid rgba(91,53,36,0.26);
+    position: relative;
+    box-shadow: inset -12px -14px 0 rgba(184,107,56,0.16);
+  }
+  .hero-cookie::before,
+  .hero-cookie::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: var(--cocoa);
+    box-shadow:
+      34px 18px 0 var(--cocoa),
+      14px 50px 0 var(--cocoa),
+      54px 58px 0 var(--cocoa);
+  }
+  .hero-cookie::before {
+    width: 16px;
+    height: 16px;
+    left: 28px;
+    top: 28px;
+  }
+  .hero-cookie::after {
+    width: 10px;
+    height: 10px;
+    left: 52px;
+    top: 42px;
+    opacity: 0.85;
+  }
+  .hero-note {
+    position: absolute;
+    left: -4px;
+    bottom: 22px;
+    background: var(--raspberry);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 13px 16px;
+    width: 220px;
+    font-size: 13px;
+    line-height: 1.45;
+    box-shadow: 0 16px 30px rgba(91,53,36,0.16);
+    transform: rotate(2deg);
+    z-index: 3;
+  }
+  .hero-note strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 2px;
+  }
+  .hero-sprinkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--soft-pink);
+    box-shadow:
+      56px -28px 0 var(--caramel),
+      96px 26px 0 var(--soft-pink),
+      142px -42px 0 var(--cookie-dough),
+      214px 38px 0 var(--soft-pink),
+      262px -20px 0 var(--caramel);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  .hero-sprinkle.top { top: 54px; left: 8px; }
+  .hero-sprinkle.bottom { right: 120px; bottom: 28px; }
+
+  /* TAGLINE STRIP */
+  .tagline-strip {
+    background: var(--cocoa);
+    padding: 16px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .tagline-inner {
+    display: inline-flex;
+    gap: 0;
+    animation: marquee 22s linear infinite;
+  }
+  .tagline-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+    color: var(--soft-pink);
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+  .tagline-dot { color: var(--cookie-dough); font-style: normal; font-size: 18px; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* MENU SECTION */
+  .section {
+    padding: 80px 48px;
+  }
+  .section-label {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--caramel);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--cocoa);
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--cocoa);
+    opacity: 0.65;
+    font-size: 15px;
+    max-width: 460px;
+    margin: 0 auto 52px;
+    line-height: 1.6;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .cookie-card {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1.5px solid var(--soft-pink);
+    padding: 28px 20px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .cookie-card:hover { transform: translateY(-4px); border-color: var(--cookie-dough); }
+  .cookie-icon { font-size: 44px; margin-bottom: 14px; display: block; }
+  .cookie-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--cocoa);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .cookie-desc {
+    font-size: 12px;
+    color: var(--cocoa);
+    opacity: 0.6;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .cookie-price {
+    background: var(--soft-pink);
+    color: var(--raspberry);
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* HOW IT WORKS */
+  .how-section {
+    background: var(--cocoa);
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .how-section .section-label { color: var(--cookie-dough); }
+  .how-section .section-title { color: var(--cream); }
+  .how-section .section-sub { color: var(--soft-pink); opacity: 0.8; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .step-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 32px 20px;
+  }
+  .step-num {
+    width: 44px; height: 44px;
+    background: var(--raspberry);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    margin: 0 auto 16px;
+  }
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--cream);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--soft-pink);
+    opacity: 0.75;
+    line-height: 1.6;
+  }
+
+  /* ORDER SECTION */
+  .order-section {
+    background: var(--white);
+    padding: 80px 48px;
+  }
+  .order-inner {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--cocoa);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--soft-pink);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--cocoa);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--cookie-dough);
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .order-note {
+    background: var(--soft-pink);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--cocoa);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .order-note strong { color: var(--raspberry); }
+  .submit-btn {
+    width: 100%;
+    background: var(--raspberry);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .submit-btn:hover { background: var(--cocoa); transform: translateY(-1px); }
+
+  /* LOVE SECTION */
+  .love-section {
+    background: var(--cream);
+    padding: 80px 48px;
+  }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .review-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1.5px solid var(--soft-pink);
+    padding: 24px 20px;
+  }
+  .review-stars { color: var(--caramel); font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
+  .review-text {
+    font-size: 14px;
+    color: var(--cocoa);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 14px;
+    opacity: 0.85;
+  }
+  .review-author { font-size: 13px; font-weight: 500; color: var(--caramel); }
+
+  /* FAQ */
+  .faq-section {
+    background: var(--white);
+    padding: 80px 48px;
+  }
+  .faq-list {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--soft-pink);
+    padding: 20px 0;
+    cursor: pointer;
+  }
+  .faq-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--cocoa);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-arrow { color: var(--raspberry); font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+  .faq-a {
+    font-size: 14px;
+    color: var(--cocoa);
+    opacity: 0.7;
+    line-height: 1.7;
+    margin-top: 10px;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--cocoa);
+    padding: 52px 48px 32px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--cream);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--cookie-dough);
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 24px;
+    list-style: none;
+  }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--soft-pink);
+    font-size: 13px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 1; }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .social-pill {
+    background: rgba(255,255,255,0.1);
+    color: var(--cream);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .social-pill:hover { background: rgba(255,255,255,0.18); }
+  .footer-copy {
+    font-size: 12px;
+    color: var(--soft-pink);
+    opacity: 0.5;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+  }
+
+  .heart-divider {
+    text-align: center;
+    color: var(--soft-pink);
+    font-size: 20px;
+    margin: 0 0 -20px;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 900px) {
+    .nav {
+      padding: 14px 24px;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nav-links {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .hero {
+      padding: 58px 24px 54px;
+    }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 38px;
+    }
+    .hero-copy {
+      text-align: center;
+    }
+    .hero-eyebrow {
+      justify-content: center;
+    }
+    .hero h1 {
+      font-size: 46px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-sub {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-btns,
+    .hero-proof {
+      justify-content: center;
+    }
+    .hero-visual {
+      min-height: 390px;
+    }
+    .hero-note {
+      left: 22px;
+      bottom: 0;
+    }
+    .section,
+    .how-section,
+    .order-section,
+    .love-section,
+    .faq-section {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nav {
+      justify-content: center;
+      padding: 12px 18px;
+    }
+    .nav-logo {
+      width: 100%;
+      text-align: center;
+    }
+    .nav-cta {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    .hero {
+      padding: 34px 20px 30px;
+    }
+    .hero-inner {
+      gap: 22px;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+    .hero-proof {
+      display: none;
+    }
+    .hero-visual {
+      min-height: 250px;
+    }
+    .hero-box {
+      width: min(100%, 228px);
+      padding: 12px 12px 14px;
+    }
+    .box-brand {
+      font-size: 18px;
+    }
+    .box-tagline {
+      font-size: 10px;
+    }
+    .box-label {
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    .box-label::before,
+    .box-label::after {
+      width: 18px;
+    }
+    .cookie-tray {
+      gap: 8px;
+    }
+    .hero-badge {
+      width: 74px;
+      height: 74px;
+      font-size: 10px;
+      right: 0;
+      top: 2px;
+    }
+    .hero-note {
+      width: 168px;
+      left: 8px;
+      bottom: 4px;
+      font-size: 11px;
+      padding: 10px 12px;
+    }
+    .hero-note strong {
+      font-size: 14px;
+    }
+    .hero-cookie::before {
+      left: 15px;
+      top: 14px;
+    }
+    .hero-cookie::after {
+      left: 32px;
+      top: 24px;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+</style>
+
+<div id="biwl-site">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Bake It With Liv — small-batch NYC cookie shop website</h2>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">Bake It With <span>Liv</span></div>
+    <ul class="nav-links">
+      <li><a onclick="scrollTo('menu')">Menu</a></li>
+      <li><a onclick="scrollTo('how')">How It Works</a></li>
+      <li><a onclick="scrollTo('reviews')">Reviews</a></li>
+      <li><a onclick="scrollTo('faq')">FAQ</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollTo('order')">Order Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Small-batch cookies · Baked fresh in NYC</p>
+        <h1>Fresh cookies with a <em>little more heart</em>.</h1>
+        <p class="hero-sub">Premium, homemade cookie boxes baked to order for birthdays, hosting, gifting, and the sweet moments that deserve something personal.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="scrollTo('order')">Order a Box</button>
+          <button class="btn-outline" onclick="scrollTo('menu')">See the Menu</button>
+        </div>
+        <div class="hero-proof" aria-label="Bake It With Liv highlights">
+          <span class="proof-pill">48-hour fresh bake notice</span>
+          <span class="proof-pill">NYC pickup or delivery</span>
+          <span class="proof-pill">Gift-ready boxes</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <span class="hero-sprinkle top"></span>
+        <div class="hero-badge">Baked Fresh<br>Shared Happily</div>
+        <div class="hero-box">
+          <div class="box-label">
+            <div class="box-brand">Bake It With Liv</div>
+            <div class="box-tagline">Made with love</div>
+          </div>
+          <div class="cookie-tray">
+            <span class="hero-cookie"></span>
+            <span class="hero-cookie"></span>
+            <span class="hero-cookie"></span>
+            <span class="hero-cookie"></span>
+          </div>
+        </div>
+        <div class="hero-note">
+          <strong>Purpose baked in</strong>
+          A portion of proceeds goes toward mental health support.
+        </div>
+        <span class="hero-sprinkle bottom"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="tagline-strip" aria-hidden="true">
+    <div class="tagline-inner">
+      <span class="tagline-item">Baked Fresh. Shared Happily. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Made for sweet moments. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Small-batch cookies, big joy. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Cookies worth sharing. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Made with love, baked in NYC. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Baked Fresh. Shared Happily. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Made for sweet moments. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Small-batch cookies, big joy. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Cookies worth sharing. <span class="tagline-dot">♥</span></span>
+      <span class="tagline-item">Made with love, baked in NYC. <span class="tagline-dot">♥</span></span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <section class="section" id="menu-section">
+    <p class="section-label">The Menu</p>
+    <h2 class="section-title">Pick your favorite</h2>
+    <p class="section-sub">Every cookie is made in small batches, baked fresh to order, and ready to make someone's day.</p>
+    <div class="menu-grid">
+      <div class="cookie-card">
+        <span class="cookie-icon">🍪</span>
+        <div class="cookie-name">Chocolate Chip</div>
+        <div class="cookie-desc">The OG. Golden brown with pools of melty chocolate chips.</div>
+        <span class="cookie-price">from $18 / 6</span>
+      </div>
+      <div class="cookie-card">
+        <span class="cookie-icon">🤎</span>
+        <div class="cookie-name">Double Fudge Brownie</div>
+        <div class="cookie-desc">Rich dark cocoa, fudgy center, crisp edges. Dangerously good.</div>
+        <span class="cookie-price">from $18 / 6</span>
+      </div>
+      <div class="cookie-card">
+        <span class="cookie-icon">🌸</span>
+        <div class="cookie-name">Brown Butter Snickerdoodle</div>
+        <div class="cookie-desc">Nutty, cinnamon-sugared, and impossibly soft in the middle.</div>
+        <span class="cookie-price">from $18 / 6</span>
+      </div>
+      <div class="cookie-card">
+        <span class="cookie-icon">🫐</span>
+        <div class="cookie-name">Lemon Blueberry</div>
+        <div class="cookie-desc">Bright lemon zest, jammy blueberries, white chocolate drizzle.</div>
+        <span class="cookie-price">from $18 / 6</span>
+      </div>
+      <div class="cookie-card">
+        <span class="cookie-icon">🌰</span>
+        <div class="cookie-name">S'mores</div>
+        <div class="cookie-desc">Graham cracker base, toasted marshmallow, dark chocolate chunks.</div>
+        <span class="cookie-price">from $18 / 6</span>
+      </div>
+      <div class="cookie-card">
+        <span class="cookie-icon">🎁</span>
+        <div class="cookie-name">Custom Box</div>
+        <div class="cookie-desc">Mix and match your favorites. Perfect for gifting.</div>
+        <span class="cookie-price">from $30 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-section">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title" style="color:var(--cream);">Fresh cookies in 3 easy steps</h2>
+    <p class="section-sub">We keep it simple so you can spend less time ordering and more time eating.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Fill out the order form</div>
+        <div class="step-desc">Choose your flavors, box size, and delivery or pickup date.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Liv bakes fresh</div>
+        <div class="step-desc">Every box is made to order — no sitting on shelves here.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Enjoy & share</div>
+        <div class="step-desc">Pickup in NYC or local delivery. Fresh, warm, and ready to love.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER -->
+  <section class="order-section" id="order-section">
+    <p class="section-label">Place an Order</p>
+    <h2 class="section-title">Order by DM or form</h2>
+    <p class="section-sub">Fill out the form below and Liv will confirm your order within 24 hours.</p>
+    <div class="order-inner">
+      <div class="order-note">
+        <strong>♥ Please note:</strong> Orders need at least <strong>48 hours</strong> notice. Payment via Venmo or Zelle after confirmation. All orders are subject to availability.
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="jane@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Phone / Instagram handle</label>
+        <input type="text" placeholder="@janebakes or (212) 555-0100" />
+      </div>
+      <div class="form-group">
+        <label>Flavor selection</label>
+        <select>
+          <option value="">Pick a flavor…</option>
+          <option>Chocolate Chip</option>
+          <option>Double Fudge Brownie</option>
+          <option>Brown Butter Snickerdoodle</option>
+          <option>Lemon Blueberry</option>
+          <option>S'mores</option>
+          <option>Custom Mix</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Box size</label>
+          <select>
+            <option>6 cookies — $18</option>
+            <option>12 cookies — $30</option>
+            <option>24 cookies — $55</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Delivery or pickup?</label>
+          <select>
+            <option>Pickup (NYC)</option>
+            <option>Local delivery (+$5)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Requested date</label>
+        <input type="date" />
+      </div>
+      <div class="form-group">
+        <label>Special requests or allergies</label>
+        <textarea placeholder="Any allergies, custom messages for gift boxes, or notes for Liv…"></textarea>
+      </div>
+      <button class="submit-btn" onclick="handleOrder()">Send My Order ♥</button>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="love-section" id="reviews-section">
+    <p class="section-label">Happy Customers</p>
+    <h2 class="section-title">Made with love, eaten with joy</h2>
+    <p class="section-sub">Real words from real cookie lovers across NYC.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"These are genuinely the best cookies I've ever had. The chocolate chip is perfection — crispy edges, gooey center. I ordered for a party and everyone asked for the info!"</div>
+        <div class="review-author">— Mia T., Brooklyn</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Ordered a gift box for my mom's birthday and she cried happy tears. The packaging was SO cute and the cookies were still soft two days later."</div>
+        <div class="review-author">— Carlos R., Manhattan</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"The brown butter snickerdoodle is life-changing. I place an order every two weeks now. Liv always responds so fast and is the sweetest!"</div>
+        <div class="review-author">— Priya S., Astoria</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq-section">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Good questions</h2>
+    <p class="section-sub">Everything you need to know before you order.</p>
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How far in advance do I need to order? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">At least 48 hours in advance for standard orders. For large orders (24+ cookies) or custom gift boxes, please give 72 hours notice so everything is made perfectly fresh.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you deliver? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes! Local delivery is available within NYC for a small $5 fee. You can also pick up at our location in NYC — pickup details are shared after your order is confirmed.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I pay? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Payment is via Venmo or Zelle after your order is confirmed. You'll receive a confirmation DM or email with payment details within 24 hours of submitting your order form.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you accommodate allergies? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Please note all our cookies are baked in a home kitchen that handles nuts, gluten, dairy, and eggs. We're not able to guarantee allergen-free products, but please mention any allergies in your order and we'll do our best to help.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I order custom or themed cookies? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Absolutely! Gift boxes with custom messages, seasonal flavors, and themed packaging are all available. Just mention it in your order form and Liv will follow up with options.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long do they stay fresh? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Our cookies are best enjoyed within 3 days at room temperature. They also freeze beautifully for up to a month — just pop them in the microwave for 15 seconds to bring back that fresh-baked warmth.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Bake It With Liv</div>
+    <div class="footer-tagline">Baked Fresh. Shared Happily. · Based in NYC</div>
+    <div class="footer-social">
+      <a class="social-pill" href="#">♥ Instagram</a>
+      <a class="social-pill" href="#">TikTok</a>
+      <a class="social-pill" href="#">DM to Order</a>
+    </div>
+    <ul class="footer-links">
+      <li><a onclick="scrollTo('menu')">Menu</a></li>
+      <li><a onclick="scrollTo('how')">How It Works</a></li>
+      <li><a onclick="scrollTo('order')">Order</a></li>
+      <li><a onclick="scrollTo('faq')">FAQ</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Bake It With Liv · Small-batch cookies, baked with love in NYC 🍪</div>
+  </footer>
+</div>
+
+<script>
+  function scrollTo(id) {
+    const map = { menu: 'menu-section', how: 'how-section', order: 'order-section', reviews: 'reviews-section', faq: 'faq-section' };
+    const el = document.getElementById(map[id] || id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  document.getElementById('faq-list').addEventListener('click', function(e) {
+    const item = e.target.closest('.faq-item');
+    if (!item) return;
+    item.classList.toggle('open');
+  });
+
+  function handleOrder() {
+    const url = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform';
+    alert('Order form submitted! Liv will confirm within 24 hours. In production this connects to your Google Sheet — replace the form URL with your own link. ♥');
+  }
+</script>
