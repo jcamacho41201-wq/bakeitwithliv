@@ -614,6 +614,71 @@
   .faq-item.open .faq-a { display: block; }
   .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
+  /* ABOUT LIV */
+  .about-section {
+    background: var(--cream);
+    padding: 86px 48px;
+  }
+  .about-inner {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1.14fr);
+    gap: 48px;
+    align-items: center;
+  }
+  .about-photo-wrap {
+    position: relative;
+  }
+  .about-photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 18px -18px -18px 18px;
+    border: 2px dotted var(--soft-pink);
+    border-radius: 8px;
+  }
+  .about-photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 48% 42%;
+    border-radius: 8px;
+    border: 2px solid var(--soft-pink);
+    box-shadow: 0 22px 46px rgba(91,53,36,0.13);
+  }
+  .about-content {
+    background: rgba(255,255,255,0.72);
+    border: 1.5px solid var(--soft-pink);
+    border-radius: 8px;
+    padding: 38px;
+  }
+  .about-content .section-label {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    line-height: 1.1;
+    color: var(--cocoa);
+    margin-bottom: 18px;
+  }
+  .about-text {
+    color: var(--cocoa);
+    font-size: 16px;
+    line-height: 1.75;
+    opacity: 0.78;
+  }
+  .about-signoff {
+    color: var(--raspberry);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 20px;
+  }
+
   /* FOOTER */
   .footer {
     background: var(--cocoa);
@@ -734,9 +799,18 @@
     .how-section,
     .order-section,
     .love-section,
-    .faq-section {
+    .faq-section,
+    .about-section {
       padding-left: 24px;
       padding-right: 24px;
+    }
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+    .about-photo-wrap {
+      max-width: 420px;
+      margin: 0 auto;
     }
   }
 
@@ -828,6 +902,19 @@
       grid-template-columns: 1fr;
       gap: 0;
     }
+    .about-section {
+      padding-top: 58px;
+      padding-bottom: 58px;
+    }
+    .about-content {
+      padding: 26px 22px;
+    }
+    .about-title {
+      font-size: 32px;
+    }
+    .about-text {
+      font-size: 15px;
+    }
     .footer-links {
       flex-wrap: wrap;
       gap: 16px;
@@ -842,12 +929,12 @@
   <nav class="nav">
     <div class="nav-logo">Bake It With <span>Liv</span></div>
     <ul class="nav-links">
-      <li><a onclick="scrollTo('menu')">Menu</a></li>
-      <li><a onclick="scrollTo('how')">How It Works</a></li>
-      <li><a onclick="scrollTo('reviews')">Reviews</a></li>
-      <li><a onclick="scrollTo('faq')">FAQ</a></li>
+      <li><a href="#menu-section" onclick="scrollToSection('menu', event)">Menu</a></li>
+      <li><a href="#how-section" onclick="scrollToSection('how', event)">How It Works</a></li>
+      <li><a href="#reviews-section" onclick="scrollToSection('reviews', event)">Reviews</a></li>
+      <li><a href="#faq-section" onclick="scrollToSection('faq', event)">FAQ</a></li>
     </ul>
-    <button class="nav-cta" onclick="scrollTo('order')">Order Now</button>
+    <button class="nav-cta" type="button" onclick="openOrderForm(event)">Order Now</button>
   </nav>
 
   <!-- HERO -->
@@ -858,8 +945,8 @@
         <h1>Fresh cookies with a <em>little more heart</em>.</h1>
         <p class="hero-sub">Premium, homemade cookie boxes baked to order for birthdays, hosting, gifting, and the sweet moments that deserve something personal.</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="scrollTo('order')">Order a Box</button>
-          <button class="btn-outline" onclick="scrollTo('menu')">See the Menu</button>
+          <button class="btn-primary" type="button" onclick="openOrderForm(event)">Order a Box</button>
+          <button class="btn-outline" type="button" onclick="scrollToSection('menu', event)">See the Menu</button>
         </div>
         <div class="hero-proof" aria-label="Bake It With Liv highlights">
           <span class="proof-pill">48-hour fresh bake notice</span>
@@ -1040,7 +1127,7 @@
         <label>Special requests or allergies</label>
         <textarea placeholder="Any allergies, custom messages for gift boxes, or notes for Liv…"></textarea>
       </div>
-      <button class="submit-btn" onclick="handleOrder()">Send My Order ♥</button>
+      <button class="submit-btn" type="button" onclick="handleOrder(event)">Send My Order ♥</button>
     </div>
   </section>
 
@@ -1101,6 +1188,21 @@
     </div>
   </section>
 
+  <!-- ABOUT LIV -->
+  <section class="about-section" id="about-section">
+    <div class="about-inner">
+      <div class="about-photo-wrap">
+        <img class="about-photo" src="assets/liv-about.jpg" alt="Liv smiling at a table" />
+      </div>
+      <div class="about-content">
+        <p class="section-label">About Liv</p>
+        <h2 class="about-title">Meet the heart behind the cookies</h2>
+        <p class="about-text">Liv is a full-time graduate student studying social work, with hopes of becoming a successful therapist one day. Her passion has always been rooted in helping people feel seen, supported, and cared for. When she’s not working toward putting smiles on people’s faces in session, she’s bringing that same joy into the kitchen — baking delicious cookies made to comfort, connect, and brighten someone’s day.</p>
+        <div class="about-signoff">Baked fresh, shared happily.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-logo">Bake It With Liv</div>
@@ -1108,23 +1210,43 @@
     <div class="footer-social">
       <a class="social-pill" href="#">♥ Instagram</a>
       <a class="social-pill" href="#">TikTok</a>
-      <a class="social-pill" href="#">DM to Order</a>
+      <a class="social-pill" href="#order-section" onclick="openOrderForm(event)">DM to Order</a>
     </div>
     <ul class="footer-links">
-      <li><a onclick="scrollTo('menu')">Menu</a></li>
-      <li><a onclick="scrollTo('how')">How It Works</a></li>
-      <li><a onclick="scrollTo('order')">Order</a></li>
-      <li><a onclick="scrollTo('faq')">FAQ</a></li>
+      <li><a href="#menu-section" onclick="scrollToSection('menu', event)">Menu</a></li>
+      <li><a href="#how-section" onclick="scrollToSection('how', event)">How It Works</a></li>
+      <li><a href="#order-section" onclick="scrollToSection('order', event)">Order</a></li>
+      <li><a href="#faq-section" onclick="scrollToSection('faq', event)">FAQ</a></li>
+      <li><a href="#about-section" onclick="scrollToSection('about', event)">About Liv</a></li>
     </ul>
     <div class="footer-copy">© 2025 Bake It With Liv · Small-batch cookies, baked with love in NYC 🍪</div>
   </footer>
 </div>
 
 <script>
-  function scrollTo(id) {
-    const map = { menu: 'menu-section', how: 'how-section', order: 'order-section', reviews: 'reviews-section', faq: 'faq-section' };
+  const GOOGLE_FORM_URL = '';
+
+  function scrollToSection(id, event) {
+    if (event) event.preventDefault();
+    const map = {
+      menu: 'menu-section',
+      how: 'how-section',
+      order: 'order-section',
+      reviews: 'reviews-section',
+      faq: 'faq-section',
+      about: 'about-section'
+    };
     const el = document.getElementById(map[id] || id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function openOrderForm(event) {
+    if (event) event.preventDefault();
+    if (GOOGLE_FORM_URL) {
+      window.location.href = GOOGLE_FORM_URL;
+      return;
+    }
+    scrollToSection('order');
   }
 
   document.getElementById('faq-list').addEventListener('click', function(e) {
@@ -1133,8 +1255,12 @@
     item.classList.toggle('open');
   });
 
-  function handleOrder() {
-    const url = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform';
-    alert('Order form submitted! Liv will confirm within 24 hours. In production this connects to your Google Sheet — replace the form URL with your own link. ♥');
+  function handleOrder(event) {
+    if (event) event.preventDefault();
+    if (GOOGLE_FORM_URL) {
+      window.location.href = GOOGLE_FORM_URL;
+      return;
+    }
+    alert('Liv will confirm orders within 24 hours. Add the Google Form link to GOOGLE_FORM_URL when it is ready. ♥');
   }
 </script>
